@@ -1,0 +1,52 @@
+build:bullseye:
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  stage: build
+  script:
+    - mkdir -p /kaniko/.docker
+    - >
+      echo
+      "{\"auths\":{\"$CI_REGISTRY\":{\"auth\":\"$(echo -n ${CI_REGISTRY_USER}:${CI_REGISTRY_PASSWORD} | base64)\"}}}" >
+      /kaniko/.docker/config.json
+    - >
+      /kaniko/executor
+      --context $CI_PROJECT_DIR
+      --dockerfile $CI_PROJECT_DIR/$CARGO_VERSION/bullseye/Dockerfile
+      --cache=false
+      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR-bullseye
+      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR.$CARGO_MINOR-bullseye
+      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR.$CARGO_MINOR.$CARGO_PATCH-bullseye
+      --destination $CI_REGISTRY_IMAGE:bullseye
+      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR
+      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR.$CARGO_MINOR
+      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR.$CARGO_MINOR.$CARGO_PATCH
+      --destination $CI_REGISTRY_IMAGE:latest
+      --build-arg CARGO_VERSION=$CARGO_VERSION
+      --force
+
+
+build:bullseye-slim:
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  stage: build
+  script:
+    - mkdir -p /kaniko/.docker
+    - >
+      echo
+      "{\"auths\":{\"$CI_REGISTRY\":{\"auth\":\"$(echo -n ${CI_REGISTRY_USER}:${CI_REGISTRY_PASSWORD} | base64)\"}}}" >
+      /kaniko/.docker/config.json
+    - >
+      /kaniko/executor
+      --context $CI_PROJECT_DIR
+      --dockerfile $CI_PROJECT_DIR/$CARGO_VERSION/bullseye/slim/Dockerfile
+      --cache=false
+      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR-slim-bullseye
+      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR.$CARGO_MINOR-slim-bullseye
+      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR.$CARGO_MINOR.$CARGO_PATCH-slim-bullseye
+      --destination $CI_REGISTRY_IMAGE:slim-bullseye
+      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR-slim
+      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR.$CARGO_MINOR-slim
+      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR.$CARGO_MINOR.$CARGO_PATCH-slim
+      --destination $CI_REGISTRY_IMAGE:slim
+      --build-arg CARGO_VERSION=$CARGO_VERSION
+      --force

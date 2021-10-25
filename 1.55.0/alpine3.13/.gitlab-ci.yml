@@ -1,0 +1,21 @@
+build:alpine3.13:
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  stage: build
+  script:
+    - mkdir -p /kaniko/.docker
+    - >
+      echo
+      "{\"auths\":{\"$CI_REGISTRY\":{\"auth\":\"$(echo -n ${CI_REGISTRY_USER}:${CI_REGISTRY_PASSWORD} | base64)\"}}}" >
+      /kaniko/.docker/config.json
+    - >
+      /kaniko/executor
+      --context $CI_PROJECT_DIR
+      --dockerfile $CI_PROJECT_DIR/$CARGO_VERSION/alpine3.13/Dockerfile
+      --cache=false
+      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR-alpine3.13
+      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR.$CARGO_MINOR-alpine3.13
+      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR.$CARGO_MINOR.$CARGO_PATCH-alpine3.13
+      --destination $CI_REGISTRY_IMAGE:alpine3.13
+      --build-arg CARGO_VERSION=$CARGO_VERSION
+      --force

@@ -1,0 +1,43 @@
+build:buster:
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  stage: build
+  script:
+    - mkdir -p /kaniko/.docker
+    - >
+      echo
+      "{\"auths\":{\"$CI_REGISTRY\":{\"auth\":\"$(echo -n ${CI_REGISTRY_USER}:${CI_REGISTRY_PASSWORD} | base64)\"}}}" >
+      /kaniko/.docker/config.json
+    - >
+      /kaniko/executor
+      --context $CI_PROJECT_DIR
+      --dockerfile $CI_PROJECT_DIR/$CARGO_VERSION/buster/Dockerfile
+      --cache=false
+      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR-buster
+      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR.$CARGO_MINOR-buster
+      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR.$CARGO_MINOR.$CARGO_PATCH-buster
+      --destination $CI_REGISTRY_IMAGE:buster
+      --build-arg CARGO_VERSION=$CARGO_VERSION
+      --force
+
+build:buster-slim:
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  stage: build
+  script:
+    - mkdir -p /kaniko/.docker
+    - >
+      echo
+      "{\"auths\":{\"$CI_REGISTRY\":{\"auth\":\"$(echo -n ${CI_REGISTRY_USER}:${CI_REGISTRY_PASSWORD} | base64)\"}}}" >
+      /kaniko/.docker/config.json
+    - >
+      /kaniko/executor
+      --context $CI_PROJECT_DIR
+      --dockerfile $CI_PROJECT_DIR/$CARGO_VERSION/buster/slim/Dockerfile
+      --cache=false
+      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR-slim-buster
+      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR.$CARGO_MINOR-slim-buster
+      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR.$CARGO_MINOR.$CARGO_PATCH-slim-buster
+      --destination $CI_REGISTRY_IMAGE:slim-buster
+      --build-arg CARGO_VERSION=$CARGO_VERSION
+      --force
