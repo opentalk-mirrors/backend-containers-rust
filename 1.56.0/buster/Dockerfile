@@ -1,11 +1,11 @@
 FROM buildpack-deps:buster
 
-ARG CARGO_VERSION
+ARG RUST_VERSION
 
 ENV RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \
     PATH=/usr/local/cargo/bin:$PATH \
-    RUST_VERSION=$CARGO_VERSION
+    RUST_VERSION=$RUST_VERSION
 
 RUN set -eux; \
     dpkgArch="$(dpkg --print-architecture)"; \
@@ -20,7 +20,7 @@ RUN set -eux; \
     wget "$url"; \
     echo "${rustupSha256} *rustup-init" | sha256sum -c -; \
     chmod +x rustup-init; \
-    ./rustup-init -y --no-modify-path --profile default --default-toolchain $CARGO_VERSION --default-host ${rustArch}; \
+    ./rustup-init -y --no-modify-path --profile default --default-toolchain $RUST_VERSION --default-host ${rustArch}; \
     rm rustup-init; \
     chmod -R a+w $RUSTUP_HOME $CARGO_HOME; \
     rustup --version; \

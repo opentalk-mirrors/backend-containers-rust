@@ -12,11 +12,11 @@ build:alpine3.13:
     - >
       /kaniko/executor
       --context $CI_PROJECT_DIR
-      --dockerfile $CI_PROJECT_DIR/$CARGO_VERSION/alpine3.13/Dockerfile
+      --dockerfile $CI_PROJECT_DIR/$RUST_VERSION/alpine3.13/Dockerfile
       --cache=false
-      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR-alpine3.13
-      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR.$CARGO_MINOR-alpine3.13
-      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR.$CARGO_MINOR.$CARGO_PATCH-alpine3.13
+      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR-alpine3.13
+      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR-alpine3.13
+      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-alpine3.13
       --destination $CI_REGISTRY_IMAGE:alpine3.13
-      --build-arg CARGO_VERSION=$CARGO_VERSION
+      --build-arg RUST_VERSION=$RUST_VERSION
       --force

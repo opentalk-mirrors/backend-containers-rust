@@ -12,13 +12,13 @@ build:buster:
     - >
       /kaniko/executor
       --context $CI_PROJECT_DIR
-      --dockerfile $CI_PROJECT_DIR/$CARGO_VERSION/buster/Dockerfile
+      --dockerfile $CI_PROJECT_DIR/$RUST_VERSION/buster/Dockerfile
       --cache=false
-      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR-buster
-      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR.$CARGO_MINOR-buster
-      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR.$CARGO_MINOR.$CARGO_PATCH-buster
+      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR-buster
+      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR-buster
+      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-buster
       --destination $CI_REGISTRY_IMAGE:buster
-      --build-arg CARGO_VERSION=$CARGO_VERSION
+      --build-arg RUST_VERSION=$RUST_VERSION
       --force
 
 build:buster-slim:
@@ -35,11 +35,11 @@ build:buster-slim:
     - >
       /kaniko/executor
       --context $CI_PROJECT_DIR
-      --dockerfile $CI_PROJECT_DIR/$CARGO_VERSION/buster/slim/Dockerfile
+      --dockerfile $CI_PROJECT_DIR/$RUST_VERSION/buster/slim/Dockerfile
       --cache=false
-      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR-slim-buster
-      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR.$CARGO_MINOR-slim-buster
-      --destination $CI_REGISTRY_IMAGE:$CARGO_MAJOR.$CARGO_MINOR.$CARGO_PATCH-slim-buster
+      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR-slim-buster
+      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR-slim-buster
+      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-slim-buster
       --destination $CI_REGISTRY_IMAGE:slim-buster
-      --build-arg CARGO_VERSION=$CARGO_VERSION
+      --build-arg RUST_VERSION=$RUST_VERSION
       --force
