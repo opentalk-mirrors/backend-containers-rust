@@ -4,17 +4,17 @@ image:
   entrypoint: ['']
 
 include:
-  - 1.56.0/buster/.gitlab-ci.yml
-  - 1.56.0/bullseye/.gitlab-ci.yml
-  - 1.56.0/alpine3.13/.gitlab-ci.yml
-  - 1.56.0/alpine3.14/.gitlab-ci.yml
+  - 1.56.1/buster/.gitlab-ci.yml
+  - 1.56.1/bullseye/.gitlab-ci.yml
+  - 1.56.1/alpine3.13/.gitlab-ci.yml
+  - 1.56.1/alpine3.14/.gitlab-ci.yml
 
 stages:
   - build
 
 variables:
   CARGO_HOME: ${CI_PROJECT_DIR}/.cargo
-  RUST_VERSION: 1.56.0
+  RUST_VERSION: 1.56.1
   RUST_MAJOR: 1
   RUST_MINOR: 56
-  RUST_PATCH: 0
+  RUST_PATCH: 1
