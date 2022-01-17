@@ -18,9 +18,5 @@ build:alpine3.14:
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR-alpine3.14
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-alpine3.14
       --destination $CI_REGISTRY_IMAGE:alpine3.14
-      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR-alpine
-      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR-alpine
-      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-alpine
-      --destination $CI_REGISTRY_IMAGE:alpine
       --build-arg RUST_VERSION=$RUST_VERSION
       --force
