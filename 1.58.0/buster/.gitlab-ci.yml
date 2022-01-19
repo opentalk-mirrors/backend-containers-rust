@@ -13,7 +13,6 @@ build:buster:
       /kaniko/executor
       --context $CI_PROJECT_DIR
       --dockerfile $CI_PROJECT_DIR/$RUST_VERSION/buster/Dockerfile
-      --cache=false
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR-buster
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR-buster
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-buster
@@ -36,7 +35,6 @@ build:buster-slim:
       /kaniko/executor
       --context $CI_PROJECT_DIR
       --dockerfile $CI_PROJECT_DIR/$RUST_VERSION/buster/slim/Dockerfile
-      --cache=false
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR-slim-buster
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR-slim-buster
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-slim-buster

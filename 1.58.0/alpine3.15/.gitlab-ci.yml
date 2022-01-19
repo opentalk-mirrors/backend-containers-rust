@@ -13,7 +13,6 @@ build:alpine3.15:
       /kaniko/executor
       --context $CI_PROJECT_DIR
       --dockerfile $CI_PROJECT_DIR/$RUST_VERSION/alpine3.15/Dockerfile
-      --cache=false
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR-alpine3.15
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR-alpine3.15
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-alpine3.15

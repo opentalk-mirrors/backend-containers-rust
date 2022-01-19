@@ -13,7 +13,6 @@ build:bullseye:
       /kaniko/executor
       --context $CI_PROJECT_DIR
       --dockerfile $CI_PROJECT_DIR/$RUST_VERSION/bullseye/Dockerfile
-      --cache=false
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR-bullseye
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR-bullseye
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-bullseye
@@ -41,7 +40,6 @@ build:bullseye-slim:
       /kaniko/executor
       --context $CI_PROJECT_DIR
       --dockerfile $CI_PROJECT_DIR/$RUST_VERSION/bullseye/slim/Dockerfile
-      --cache=false
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR-slim-bullseye
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR-slim-bullseye
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-slim-bullseye
