@@ -11,6 +11,7 @@ build:buster:
       /kaniko/.docker/config.json
     - >
       /kaniko/executor
+      --registry-mirror=mirror.gcr.io
       --context $CI_PROJECT_DIR
       --dockerfile $CI_PROJECT_DIR/$RUST_VERSION/buster/Dockerfile
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR-buster
@@ -33,6 +34,7 @@ build:buster-slim:
       /kaniko/.docker/config.json
     - >
       /kaniko/executor
+      --registry-mirror=mirror.gcr.io
       --context $CI_PROJECT_DIR
       --dockerfile $CI_PROJECT_DIR/$RUST_VERSION/buster/slim/Dockerfile
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR-slim-buster

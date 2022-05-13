@@ -11,6 +11,7 @@ build:bullseye:
       /kaniko/.docker/config.json
     - >
       /kaniko/executor
+      --registry-mirror=mirror.gcr.io
       --context $CI_PROJECT_DIR
       --dockerfile $CI_PROJECT_DIR/$RUST_VERSION/bullseye/Dockerfile
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR-bullseye
@@ -38,6 +39,7 @@ build:bullseye-slim:
       /kaniko/.docker/config.json
     - >
       /kaniko/executor
+      --registry-mirror=mirror.gcr.io
       --context $CI_PROJECT_DIR
       --dockerfile $CI_PROJECT_DIR/$RUST_VERSION/bullseye/slim/Dockerfile
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR-slim-bullseye
