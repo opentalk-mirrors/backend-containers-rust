@@ -1,8 +1,10 @@
 FROM alpine:3.14
 
-RUN apk add --no-cache \
+RUN apk update; \
+    apk add --no-cache \
         ca-certificates \
-        gcc
+        gcc \
+        ldd
 
 ARG RUST_VERSION
 
@@ -10,6 +12,8 @@ ENV RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \
     PATH=/usr/local/cargo/bin:$PATH \
     RUST_VERSION=$RUST_VERSION
+
+COPY config.toml /usr/local/cargo/
 
 RUN set -eux; \
     apkArch="$(apk --print-arch)"; \
