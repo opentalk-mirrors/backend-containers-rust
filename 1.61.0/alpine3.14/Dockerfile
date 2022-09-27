@@ -4,7 +4,7 @@ RUN apk update; \
     apk add --no-cache \
         ca-certificates \
         gcc \
-        ldd
+        lld
 
 ARG RUST_VERSION
 
