@@ -8,6 +8,7 @@ include:
   - 1.65.0/bullseye/.gitlab-ci.yml
   - 1.65.0/alpine3.14/.gitlab-ci.yml
   - 1.65.0/alpine3.15/.gitlab-ci.yml
+  - 1.65.0/alpine3.16/.gitlab-ci.yml
 
 stages:
   - build
