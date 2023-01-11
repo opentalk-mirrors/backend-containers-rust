@@ -3,19 +3,14 @@ image:
   name: gcr.io/kaniko-project/executor:debug
   entrypoint: ['']
 
-include:
-  - 1.65.0/buster/.gitlab-ci.yml
-  - 1.65.0/bullseye/.gitlab-ci.yml
-  - 1.65.0/alpine3.14/.gitlab-ci.yml
-  - 1.65.0/alpine3.15/.gitlab-ci.yml
-  - 1.65.0/alpine3.16/.gitlab-ci.yml
+include: '**/.gitlab-ci.yml'
 
 stages:
   - build
 
 variables:
   CARGO_HOME: ${CI_PROJECT_DIR}/.cargo
-  RUST_VERSION: 1.65.0
+  RUST_VERSION: 1.66.1
   RUST_MAJOR: 1
-  RUST_MINOR: 65
-  RUST_PATCH: 0
+  RUST_MINOR: 66
+  RUST_PATCH: 1
