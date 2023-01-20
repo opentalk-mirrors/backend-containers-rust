@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: OpenTalk GmbH <mail@opentalk.eu>
+#
+# SPDX-License-Identifier: EUPL-1.2
+
 FROM alpine:3.15
 
 RUN apk update; \
