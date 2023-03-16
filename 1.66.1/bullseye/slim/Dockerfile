@@ -18,6 +18,7 @@ RUN set -eux; \
     apt-get install -y --no-install-recommends \
         ca-certificates \
         gcc \
+        protobuf-compiler \
         libc6-dev \
         wget \
         lld \

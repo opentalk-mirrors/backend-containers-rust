@@ -15,7 +15,10 @@ COPY config.toml /usr/local/cargo/
 
 RUN set -eux; \
     apt-get update; \
-    apt-get install -y --no-install-recommends lld; \
+    apt-get install -y --no-install-recommends \
+        lld \
+        protobuf-compiler \
+        ; \
     dpkgArch="$(dpkg --print-architecture)"; \
     case "${dpkgArch##*-}" in \
         amd64) rustArch='x86_64-unknown-linux-gnu'; rustupSha256='5cc9ffd1026e82e7fb2eec2121ad71f4b0f044e88bca39207b3f6b769aaa799c' ;; \
