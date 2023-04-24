@@ -15,10 +15,10 @@ stages:
 
 variables:
   CARGO_HOME: ${CI_PROJECT_DIR}/.cargo
-  RUST_VERSION: 1.66.1
+  RUST_VERSION: 1.69.0
   RUST_MAJOR: 1
-  RUST_MINOR: 66
-  RUST_PATCH: 1
+  RUST_MINOR: 69
+  RUST_PATCH: 0
 
 lint:licensing:
   rules:
