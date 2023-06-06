@@ -18,7 +18,7 @@ build:alpine3.17:
       /kaniko/executor
       --registry-mirror=mirror.gcr.io
       --context $CI_PROJECT_DIR
-      --dockerfile $CI_PROJECT_DIR/$RUST_VERSION/alpine3.17/Dockerfile
+      --dockerfile $CI_PROJECT_DIR/images/alpine3.17/Dockerfile
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR-alpine3.17
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR-alpine3.17
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-alpine3.17
