@@ -28,10 +28,6 @@ build:bullseye:
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR-bullseye
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-bullseye
       --destination $CI_REGISTRY_IMAGE:bullseye
-      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR
-      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR
-      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR.$RUST_PATCH
-      --destination $CI_REGISTRY_IMAGE:latest
       --build-arg RUST_VERSION=$RUST_VERSION
       --force
       $KANIKO_EXTRA_ARGS
@@ -61,10 +57,6 @@ build:bullseye-slim:
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR-slim-bullseye
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-slim-bullseye
       --destination $CI_REGISTRY_IMAGE:slim-bullseye
-      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR-slim
-      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR-slim
-      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-slim
-      --destination $CI_REGISTRY_IMAGE:slim
       --build-arg RUST_VERSION=$RUST_VERSION
       --force
       $KANIKO_EXTRA_ARGS
