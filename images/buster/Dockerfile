@@ -16,6 +16,7 @@ COPY config.toml /usr/local/cargo/
 RUN set -eux; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
+        libxml2-utils \
         lld \
         protobuf-compiler \
         ; \
@@ -34,6 +35,16 @@ RUN set -eux; \
     ./rustup-init -y --no-modify-path --profile default --default-toolchain $RUST_VERSION --default-host ${rustArch}; \
     rm rustup-init; \
     chmod -R a+w $RUSTUP_HOME $CARGO_HOME; \
-    rustup --version; \
-    cargo --version; \
-    rustc --version;
+    rustup component add \
+      rustfmt \
+      llvm-tools-preview \
+      ; \
+    cargo install --locked grcov; \
+    cargo install --locked cargo-machete; \
+    cargo install --locked cargo-audit; \
+    cargo install --locked cargo-auditable; \
+    cargo install --locked cargo-deny; \
+    cargo machete --version; \
+    cargo audit --version; \
+    cargo auditable --version; \
+    cargo deny --version; \
