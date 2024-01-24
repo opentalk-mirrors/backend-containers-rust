@@ -10,7 +10,8 @@ RUN apk update; \
         gcc \
         protoc \
         lld \
-	libxml2-utils
+	libxml2-utils \
+	musl-dev
 
 ARG RUST_VERSION
 
@@ -35,6 +36,19 @@ RUN set -eux; \
     ./rustup-init -y --no-modify-path --profile default --default-toolchain $RUST_VERSION --default-host ${rustArch}; \
     rm rustup-init; \
     chmod -R a+w $RUSTUP_HOME $CARGO_HOME; \
+    rustup component add \
+      rustfmt \
+      llvm-tools-preview \
+      ; \
+    cargo install --locked grcov; \
+    cargo install --locked cargo-machete; \
+    cargo install --locked cargo-audit; \
+    cargo install --locked cargo-auditable; \
+    cargo install --locked cargo-deny; \
     rustup --version; \
     cargo --version; \
-    rustc --version;
+    rustc --version; \
+    cargo machete --version; \
+    cargo audit --version; \
+    cargo auditable --version; \
+    cargo deny --version;
