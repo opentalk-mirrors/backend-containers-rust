@@ -4,7 +4,7 @@
 
 FROM alpine:3.18
 
-RUN apk update; \
+RUN apk update --no-cache; \
     apk add --no-cache \
         ca-certificates \
         gcc \
@@ -33,21 +33,21 @@ RUN set -eux; \
     wget "$url"; \
     echo "${rustupSha256} *rustup-init" | sha256sum -c -; \
     chmod +x rustup-init; \
-    ./rustup-init -y --no-modify-path --profile default --default-toolchain $RUST_VERSION --default-host ${rustArch}; \
+    ./rustup-init -y --no-modify-path \
+	--profile minimal --component clippy --component rustfmt --component llvm-tools-preview \
+	--default-toolchain $RUST_VERSION --default-host ${rustArch}; \
     rm rustup-init; \
     chmod -R a+w $RUSTUP_HOME $CARGO_HOME; \
-    rustup component add \
-      rustfmt \
-      llvm-tools-preview \
-      ; \
+    rustup --version; \
+    cargo --version; \
+    rustc --version
+
+RUN set -eux; \
     cargo install --locked grcov; \
     cargo install --locked cargo-machete; \
     cargo install --locked cargo-audit; \
     cargo install --locked cargo-auditable; \
     cargo install --locked cargo-deny; \
-    rustup --version; \
-    cargo --version; \
-    rustc --version; \
     cargo machete --version; \
     cargo audit --version; \
     cargo auditable --version; \
