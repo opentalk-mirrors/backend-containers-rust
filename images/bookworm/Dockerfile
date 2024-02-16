@@ -44,10 +44,13 @@ RUN set -eux; \
     cargo install --locked cargo-audit; \
     cargo install --locked cargo-auditable; \
     cargo install --locked cargo-deny; \
+    cargo install --locked taplo-cli; \
     rustup --version; \
     cargo --version; \
     rustc --version; \
+    grcov --version; \
     cargo machete --version; \
     cargo audit --version; \
     cargo auditable --version; \
     cargo deny --version; \
+    taplo --version; \
