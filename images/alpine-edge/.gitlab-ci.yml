@@ -24,10 +24,6 @@ build:alpine-edge:
       --registry-mirror=mirror.gcr.io
       --context $CI_PROJECT_DIR
       --dockerfile $CI_PROJECT_DIR/images/alpine-edge/Dockerfile
-      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR-alpine-edge
-      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR-alpine-edge
-      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-alpine-edge
       --destination $CI_REGISTRY_IMAGE:alpine-edge
-      --build-arg RUST_VERSION=$RUST_VERSION
       --force
       $KANIKO_EXTRA_ARGS
