@@ -27,7 +27,9 @@ RUN set -eux; \
     cargo install --locked cargo-deny; \
     cargo install --locked cargo-machete; \
     cargo install --locked grcov; \
+    cargo install --locked sqlant; \
     cargo machete --version; \
     cargo audit --version; \
     cargo auditable --version; \
-    cargo deny --version
+    cargo deny --version; \
+    sqlant --help; \

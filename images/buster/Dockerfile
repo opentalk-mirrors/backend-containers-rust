@@ -45,9 +45,11 @@ RUN set -eux; \
     cargo install --locked cargo-auditable; \
     cargo install --locked cargo-deny; \
     cargo install --locked taplo-cli; \
+    cargo install --locked sqlant; \
     grcov --version; \
     cargo machete --version; \
     cargo audit --version; \
     cargo auditable --version; \
     cargo deny --version; \
     taplo --version; \
+    sqlant --help; \
