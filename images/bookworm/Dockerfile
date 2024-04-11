@@ -39,6 +39,7 @@ RUN set -eux; \
       rustfmt \
       llvm-tools-preview \
       ; \
+    rustup toolchain install nightly; \
     cargo install --locked grcov; \
     cargo install --locked cargo-machete; \
     cargo install --locked cargo-audit; \
@@ -49,6 +50,7 @@ RUN set -eux; \
     rustup --version; \
     cargo --version; \
     rustc --version; \
+    cargo +nightly --version; \
     grcov --version; \
     cargo machete --version; \
     cargo audit --version; \
