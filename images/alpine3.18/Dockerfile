@@ -11,14 +11,17 @@ RUN apk update --no-cache; \
         protoc \
         lld \
 	libxml2-utils \
-	musl-dev
+	musl-dev \
+    libpq-dev \
+	openssl-libs-static
 
 ARG RUST_VERSION
 
 ENV RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \
     PATH=/usr/local/cargo/bin:$PATH \
-    RUST_VERSION=$RUST_VERSION
+    RUST_VERSION=$RUST_VERSION \
+    RUSTFLAGS="-lpgcommon -lpgport -lssl -lcrypto"
 
 COPY config.toml /usr/local/cargo/
 
@@ -51,8 +54,10 @@ RUN set -eux; \
     cargo install --locked cargo-auditable; \
     cargo install --locked cargo-deny; \
     cargo install --locked sqlant; \
+    cargo install --locked diesel_cli --version ~2 --no-default-features --features="postgres"; \
     cargo machete --version; \
     cargo audit --version; \
     cargo auditable --version; \
     cargo deny --version; \
     sqlant --help; \
+    diesel --version; \

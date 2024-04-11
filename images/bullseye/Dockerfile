@@ -47,6 +47,7 @@ RUN set -eux; \
     cargo install --locked cargo-deny; \
     cargo install --locked taplo-cli; \
     cargo install --locked sqlant; \
+    cargo install --locked diesel_cli --version ~2 --no-default-features --features="postgres"; \
     rustup --version; \
     cargo --version; \
     rustc --version; \
@@ -58,3 +59,4 @@ RUN set -eux; \
     cargo deny --version; \
     taplo --version; \
     sqlant --help; \
+    diesel --version; \

@@ -51,6 +51,7 @@ RUN set -eux; \
     cargo --version; \
     rustc --version; \
     cargo +nightly --version; \
+    cargo install --locked diesel_cli --version ~2 --no-default-features --features="postgres"; \
     grcov --version; \
     cargo machete --version; \
     cargo audit --version; \
@@ -58,3 +59,4 @@ RUN set -eux; \
     cargo deny --version; \
     taplo --version; \
     sqlant --help; \
+    diesel --version; \

@@ -13,12 +13,15 @@ RUN apk update --no-cache; \
         lld \
 	libxml2-utils \
 	musl-dev \
+    libpq-dev \
+	openssl-libs-static \
 	rust cargo \
 	rustfmt rust-clippy \
 	cargo-audit cargo-auditable
 
 ENV CARGO_HOME=/usr/local/cargo \
-    PATH=/usr/local/cargo/bin:$PATH
+    PATH=/usr/local/cargo/bin:$PATH \
+    RUSTFLAGS="-lpgcommon -lpgport -lssl -lcrypto"
 
 COPY config.toml /usr/local/cargo/
 
@@ -28,8 +31,10 @@ RUN set -eux; \
     cargo install --locked cargo-machete; \
     cargo install --locked grcov; \
     cargo install --locked sqlant; \
+    cargo install --locked diesel_cli --version ~2 --no-default-features --features="postgres"; \
     cargo machete --version; \
     cargo audit --version; \
     cargo auditable --version; \
     cargo deny --version; \
     sqlant --help; \
+    diesel --version; \
