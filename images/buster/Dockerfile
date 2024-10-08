@@ -48,6 +48,7 @@ RUN set -eux; \
     cargo install --locked cargo-deny; \
     cargo install --locked taplo-cli; \
     cargo install --locked sqlant; \
+    cargo install --locked just; \
     rustup --version; \
     cargo --version; \
     rustc --version; \
@@ -61,3 +62,4 @@ RUN set -eux; \
     taplo --version; \
     sqlant --help; \
     diesel --version; \
+    just --version; \

@@ -56,9 +56,11 @@ RUN set -eux; \
     cargo install --locked cargo-deny; \
     cargo install --locked sqlant; \
     cargo install --locked diesel_cli --version ~2 --no-default-features --features="postgres"; \
+    cargo install --locked just; \
     cargo machete --version; \
     cargo audit --version; \
     cargo auditable --version; \
     cargo deny --version; \
     sqlant --help; \
     diesel --version; \
+    just --version; \
