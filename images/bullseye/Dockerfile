@@ -40,8 +40,7 @@ RUN set -eux; \
         llvm-tools \
         ; \
     rustup toolchain install nightly; \
-    # TODO: add `--locked` again after https://github.com/mozilla/grcov/issues/1187 is fixed
-    cargo install grcov; \
+    cargo install --locked grcov; \
     cargo install --locked cargo-machete; \
     cargo install --locked cargo-audit; \
     cargo install --locked cargo-auditable; \
