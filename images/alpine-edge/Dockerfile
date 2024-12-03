@@ -21,7 +21,7 @@ ENV RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \
     PATH=/usr/local/cargo/bin:$PATH \
     RUST_VERSION=$RUST_VERSION \
-    RUSTFLAGS="-lpgcommon -lpgport -lssl -lcrypto"
+    RUSTFLAGS="-lpgcommon_shlib -lpgport_shlib -lssl -lcrypto"
 
 COPY config.toml /usr/local/cargo/
 
