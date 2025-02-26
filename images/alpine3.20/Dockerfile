@@ -6,14 +6,16 @@ FROM alpine:3.20
 
 RUN apk update --no-cache; \
     apk add --no-cache \
-    ca-certificates \
-    gcc \
-    protoc \
-    lld \
-    libxml2-utils \
-    musl-dev \
-    libpq-dev \
-    openssl-libs-static
+        ca-certificates \
+        gcc \
+        protoc \
+        lld \
+        libxml2-utils \
+        musl-dev \
+        libpq-dev \
+        openssl-libs-static \
+        perl \
+        make
 
 ARG RUST_VERSION
 

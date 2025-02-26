@@ -10,10 +10,12 @@ RUN apk update --no-cache; \
         gcc \
         protoc \
         lld \
-	libxml2-utils \
-	musl-dev \
-    libpq-dev \
-	openssl-libs-static
+        libxml2-utils \
+        musl-dev \
+        libpq-dev \
+        openssl-libs-static \
+        perl \
+        make
 
 ARG RUST_VERSION
 
