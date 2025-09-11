@@ -49,6 +49,8 @@ RUN set -eux; \
     cargo install --locked sqlant; \
     cargo install --locked diesel_cli --version ~2 --no-default-features --features="postgres"; \
     cargo install --locked just; \
+    cargo install --locked cargo-nextest; \
+    cargo install cargo-llvm-cov; \
     rustup --version; \
     cargo --version; \
     rustc --version; \
@@ -62,3 +64,5 @@ RUN set -eux; \
     sqlant --help; \
     diesel --version; \
     just --version; \
+    cargo nextest --version; \
+    cargo llvm-cov --version; \
