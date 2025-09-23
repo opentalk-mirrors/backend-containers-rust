@@ -4,7 +4,8 @@
 
 ---
 image:
-  name: gcr.io/kaniko-project/executor:debug
+  name: git.opentalk.dev:5050/opentalk/opentalk-devops/containers/kaniko:debug-1.25.2
+  pull_policy: if-not-present
   entrypoint: ['']
 
 include: '**/.gitlab-ci.yml'
