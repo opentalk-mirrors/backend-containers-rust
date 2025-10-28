@@ -15,7 +15,8 @@ RUN apk update --no-cache; \
         libpq-dev \
         openssl-libs-static \
         perl \
-        make
+        make \
+        libva-dev
 
 ARG RUST_VERSION
 
