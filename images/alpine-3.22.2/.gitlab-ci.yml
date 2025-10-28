@@ -28,10 +28,10 @@ build:alpine-3.22.2:
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR-alpine-3.22.2
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-alpine-3.22.2
       --destination $CI_REGISTRY_IMAGE:alpine-3.22.2
-      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR-alpine-3.22.2
-      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR-alpine-3.22.2
-      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-alpine-3.22.2
-      --destination $CI_REGISTRY_IMAGE:alpine-3.22.2
+      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR-alpine
+      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR-alpine
+      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-alpine
+      --destination $CI_REGISTRY_IMAGE:alpine
       --build-arg RUST_VERSION=$RUST_VERSION
       --force
       $KANIKO_EXTRA_ARGS
