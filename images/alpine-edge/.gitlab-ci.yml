@@ -28,10 +28,6 @@ build:alpine-edge:
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR-alpine-edge
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-alpine-edge
       --destination $CI_REGISTRY_IMAGE:alpine-edge
-      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR-alpine-edge
-      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR-alpine-edge
-      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-alpine-edge
-      --destination $CI_REGISTRY_IMAGE:alpine-edge
       --build-arg RUST_VERSION=$RUST_VERSION
       --force
       $KANIKO_EXTRA_ARGS
