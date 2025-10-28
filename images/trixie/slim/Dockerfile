@@ -22,6 +22,7 @@ RUN set -eux; \
         libc6-dev \
         wget \
         lld \
+        libva-dev \
         ; \
     dpkgArch="$(dpkg --print-architecture)"; \
     case "${dpkgArch##*-}" in \

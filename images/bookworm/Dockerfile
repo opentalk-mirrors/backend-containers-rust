@@ -19,6 +19,7 @@ RUN set -eux; \
         libxml2-utils \
         lld \
         protobuf-compiler \
+        libva-dev \
         ; \
     dpkgArch="$(dpkg --print-architecture)"; \
     case "${dpkgArch##*-}" in \
