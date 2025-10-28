@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: EUPL-1.2
 
-FROM alpine:3.17
+FROM alpine:3.22.2
 
 RUN apk update --no-cache; \
     apk add --no-cache \
@@ -39,15 +39,15 @@ RUN set -eux; \
     echo "${rustupSha256} *rustup-init" | sha256sum -c -; \
     chmod +x rustup-init; \
     ./rustup-init -y --no-modify-path \
-        --profile minimal --component clippy --component rustfmt --component llvm-tools \
-        --default-toolchain $RUST_VERSION --default-host ${rustArch}; \
+	--profile minimal --component clippy --component rustfmt --component llvm-tools-preview \
+	--default-toolchain $RUST_VERSION --default-host ${rustArch}; \
     rm rustup-init; \
     rustup toolchain install nightly; \
     chmod -R a+w $RUSTUP_HOME $CARGO_HOME; \
     rustup --version; \
     cargo --version; \
     rustc --version; \
-    cargo +nightly --version \
+    cargo +nightly --version
 
 RUN set -eux; \
     cargo install --locked grcov; \
