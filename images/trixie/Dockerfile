@@ -40,7 +40,7 @@ RUN set -eux; \
         rustfmt \
         llvm-tools \
         ; \
-    rustup toolchain install nightly; \
+    rustup toolchain install nightly --component llvm-tools-preview; \
     cargo install --locked grcov; \
     cargo install --locked cargo-machete; \
     cargo install --locked cargo-audit; \
