@@ -43,7 +43,7 @@ RUN set -eux; \
     --profile minimal --component clippy --component rustfmt --component llvm-tools-preview \
     --default-toolchain $RUST_VERSION --default-host ${rustArch}; \
     rm rustup-init; \
-    rustup toolchain install nightly; \
+    rustup toolchain install nightly --component llvm-tools-preview; \
     chmod -R a+w $RUSTUP_HOME $CARGO_HOME; \
     rustup --version; \
     cargo --version; \
