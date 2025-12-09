@@ -16,7 +16,8 @@ RUN apk update --no-cache; \
         openssl-libs-static \
         perl \
         make \
-        libva-dev
+        libva-dev \
+        libdrm
 
 ARG RUST_VERSION
 
