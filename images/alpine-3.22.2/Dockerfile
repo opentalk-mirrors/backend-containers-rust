@@ -17,7 +17,7 @@ RUN apk update --no-cache; \
         perl \
         make \
         libva-dev \
-        libdrm
+        libdrm-dev
 
 ARG RUST_VERSION
 

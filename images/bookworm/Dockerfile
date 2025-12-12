@@ -20,7 +20,7 @@ RUN set -eux; \
         lld \
         protobuf-compiler \
         libva-dev \
-        libdrm2 \
+        libdrm-dev \
         ; \
     dpkgArch="$(dpkg --print-architecture)"; \
     case "${dpkgArch##*-}" in \
