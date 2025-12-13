@@ -23,7 +23,7 @@ RUN set -eux; \
         wget \
         lld \
         libva-dev \
-        libdrm2 \
+        libdrm-dev \
         ; \
     dpkgArch="$(dpkg --print-architecture)"; \
     case "${dpkgArch##*-}" in \
