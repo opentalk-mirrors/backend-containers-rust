@@ -7,8 +7,14 @@ FROM alpine:3.22.2
 RUN apk update --no-cache; \
     apk add --no-cache \
         ca-certificates \
+        curl \
         gcc \
+        g++ \
+        git \
+        gpg \
+        grep \
         protoc \
+        shellcheck \
         lld \
         libxml2-utils \
         musl-dev \
@@ -44,7 +50,7 @@ RUN set -eux; \
 	--profile minimal --component clippy --component rustfmt --component llvm-tools-preview \
 	--default-toolchain $RUST_VERSION --default-host ${rustArch}; \
     rm rustup-init; \
-    rustup toolchain install nightly --component llvm-tools-preview; \
+    rustup toolchain install nightly --component llvm-tools-preview --component rustfmt; \
     chmod -R a+w $RUSTUP_HOME $CARGO_HOME; \
     rustup --version; \
     cargo --version; \
