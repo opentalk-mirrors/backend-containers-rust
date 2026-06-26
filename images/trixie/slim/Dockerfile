@@ -16,6 +16,8 @@ COPY config.toml /usr/local/cargo/
 RUN set -eux; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
+        build-essential \
+        libclang-dev \
         ca-certificates \
         gcc \
         protobuf-compiler \
