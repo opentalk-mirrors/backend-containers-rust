@@ -4,7 +4,7 @@
 
 ---
 image:
-  name: git.opentalk.dev:5050/opentalk/opentalk-devops/containers/kaniko:debug-1.25.2
+  name: registry.heinlein.group/opentalk-tools/kaniko:debug-1.25.15
   pull_policy: if-not-present
   entrypoint: ['']
 
@@ -13,6 +13,7 @@ include: '**/.gitlab-ci.yml'
 stages:
   - lint
   - build
+  - push
 
 variables:
   CARGO_HOME: ${CI_PROJECT_DIR}/.cargo
@@ -27,7 +28,8 @@ lint:licensing:
     - if: $CI_PIPELINE_SOURCE == 'schedule'
   stage: lint
   image:
-    name: fsfe/reuse:latest
+    name: fsfe/reuse:6.2
     entrypoint: ['']
+    pull_policy: if-not-present
   script:
     - reuse lint
