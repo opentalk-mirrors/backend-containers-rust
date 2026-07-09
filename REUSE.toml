@@ -1,0 +1,9 @@
+version = 1
+SPDX-PackageName = "OpenTalk Rust Container Images"
+SPDX-PackageSupplier = "OpenTalk GmbH <mail@opentalk.eu>"
+
+[[annotations]]
+path = ["README.md"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "OpenTalk GmbH <mail@opentalk.eu>"
+SPDX-License-Identifier = "EUPL-1.2"
