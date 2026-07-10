@@ -49,7 +49,8 @@ RUN set -eux; \
     cargo install --locked cargo-audit; \
     cargo install --locked cargo-auditable; \
     cargo install --locked cargo-deny; \
-    cargo install --locked taplo-cli; \
+    cargo install --locked olpat-cli; \
+    ln -sf olpat /usr/local/cargo/bin/taplo; \
     cargo install --locked sqlant; \
     cargo install --locked diesel_cli --version ~2 --no-default-features --features="postgres"; \
     cargo install --locked just; \
