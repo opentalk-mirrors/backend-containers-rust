@@ -47,6 +47,7 @@ push-and-sign:alpine-3.22.2:
     - build:alpine-3.22.2
   rules:
     - if: $CI_COMMIT_TAG != null
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   stage: push
   variables:
     PIPELINE_FULL_IMAGE_NAME: $CI_REGISTRY_IMAGE
