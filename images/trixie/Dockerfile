@@ -17,6 +17,7 @@ RUN set -eux; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
         build-essential \
+        cmake \
         libclang-dev \
         libxml2-utils \
         lld \
