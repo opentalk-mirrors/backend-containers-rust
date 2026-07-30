@@ -10,6 +10,7 @@ RUN apk update --no-cache; \
         curl \
         gcc \
         g++ \
+        cmake \
         clang-dev \
         git \
         gpg \
