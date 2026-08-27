@@ -18,8 +18,8 @@ stages:
 variables:
   CARGO_HOME: ${CI_PROJECT_DIR}/.cargo
   RUST_MAJOR: 1
-  RUST_MINOR: 97
-  RUST_PATCH: 1
+  RUST_MINOR: 98
+  RUST_PATCH: 0
   RUST_VERSION: $RUST_MAJOR.$RUST_MINOR.$RUST_PATCH
 
 lint:licensing:
