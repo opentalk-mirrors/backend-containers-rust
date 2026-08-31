@@ -5,6 +5,7 @@ This repository contains Dockerfiles and configuration for building Rust contain
 ## Images
 
 - `alpine-3.22.5`: Alpine Linux 3.22.5 based image
+- `alpine-3.24.1`: Alpine Linux 3.24.1 based image
 - `alpine-edge`: Alpine Linux edge based image
 - `trixie`: Debian Trixie based image
 - `trixie/slim`: Debian Trixie slim based image
