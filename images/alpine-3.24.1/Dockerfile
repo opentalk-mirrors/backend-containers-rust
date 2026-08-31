@@ -12,6 +12,7 @@ RUN apk update --no-cache; \
         g++ \
         cmake \
         clang-dev \
+        clang22 \
         git \
         gpg \
         grep \

@@ -13,12 +13,21 @@ ENV RUSTUP_HOME=/usr/local/rustup \
 
 COPY config.toml /usr/local/cargo/
 
+# Enable backports to get clang 20+ required for webrtc-sys
+RUN printf '%s\n' \
+    "Types: deb" \
+    "URIs: https://deb.debian.org/debian" \
+    "Suites: trixie-backports" \
+    "Components: main contrib" \
+    "Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg" > /etc/apt/sources.list.d/debian-backports.sources
+
 RUN set -eux; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
         build-essential \
         cmake \
         libclang-dev \
+        clang-21 \
         libxml2-utils \
         lld \
         protobuf-compiler \
