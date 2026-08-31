@@ -4,7 +4,7 @@ This repository contains Dockerfiles and configuration for building Rust contain
 
 ## Images
 
-- `alpine-3.22.2`: Alpine Linux 3.22.2 based image
+- `alpine-3.22.5`: Alpine Linux 3.22.5 based image
 - `alpine-edge`: Alpine Linux edge based image
 - `trixie`: Debian Trixie based image
 - `trixie/slim`: Debian Trixie slim based image
@@ -19,7 +19,7 @@ docker build -t <image-name> -f images/<image-name>/Dockerfile .
 
 For example:
 ```bash
-docker build -t rust-alpine -f images/alpine-3.22.2/Dockerfile .
+docker build -t rust-alpine -f images/alpine-3.22.5/Dockerfile .
 ```
 
 ## License
