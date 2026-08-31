@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: EUPL-1.2
 
 ---
-build:alpine-3.22.2:
+build:alpine-3.24.1:
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
     - if: $CI_COMMIT_TAG
@@ -23,11 +23,11 @@ build:alpine-3.22.2:
       /kaniko/executor
       --registry-mirror=mirror.gcr.io
       --context $CI_PROJECT_DIR
-      --dockerfile $CI_PROJECT_DIR/images/alpine-3.22.2/Dockerfile
-      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR-alpine-3.22.2
-      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR-alpine-3.22.2
-      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-alpine-3.22.2
-      --destination $CI_REGISTRY_IMAGE:alpine-3.22.2
+      --dockerfile $CI_PROJECT_DIR/images/alpine-3.24.1/Dockerfile
+      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR-alpine-3.24.1
+      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR-alpine-3.24.1
+      --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-alpine-3.24.1
+      --destination $CI_REGISTRY_IMAGE:alpine-3.24.1
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR-alpine
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR-alpine
       --destination $CI_REGISTRY_IMAGE:$RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-alpine
@@ -36,15 +36,15 @@ build:alpine-3.22.2:
       --force
       $KANIKO_EXTRA_ARGS
     - >
-      TAGS="$RUST_MAJOR-alpine-3.22.2 $RUST_MAJOR.$RUST_MINOR-alpine-3.22.2 $RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-alpine-3.22.2 $RUST_MAJOR-alpine $RUST_MAJOR.$RUST_MINOR-alpine $RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-alpine alpine"
+      TAGS="$RUST_MAJOR-alpine-3.24.1 $RUST_MAJOR.$RUST_MINOR-alpine-3.24.1 $RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-alpine-3.24.1 $RUST_MAJOR-alpine $RUST_MAJOR.$RUST_MINOR-alpine $RUST_MAJOR.$RUST_MINOR.$RUST_PATCH-alpine alpine"
     - echo "TAGS=$TAGS" > package.env
   artifacts:
     reports:
       dotenv: package.env
 
-push-and-sign:alpine-3.22.2:
+push-and-sign:alpine-3.24.1:
   needs:
-    - build:alpine-3.22.2
+    - build:alpine-3.24.1
   rules:
     - if: $CI_COMMIT_TAG != null
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

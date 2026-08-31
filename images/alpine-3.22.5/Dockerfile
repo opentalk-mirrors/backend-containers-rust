@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: EUPL-1.2
 
-FROM alpine:3.22.2
+FROM alpine:3.22.5
 
 RUN apk update --no-cache; \
     apk add --no-cache \
