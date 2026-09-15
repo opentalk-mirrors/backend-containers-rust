@@ -21,6 +21,10 @@ RUN printf '%s\n' \
     "Components: main contrib" \
     "Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg" > /etc/apt/sources.list.d/debian-backports.sources
 
+# Enable contrib and non-free, they provide the fdk-aac based GStreamer plugin
+RUN sed -i 's/^Components: main$/& contrib non-free non-free-firmware/' \
+    /etc/apt/sources.list.d/debian.sources
+
 RUN set -eux; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
@@ -33,6 +37,15 @@ RUN set -eux; \
         protobuf-compiler \
         libva-dev \
         libdrm-dev \
+        libgstreamer1.0-dev \
+        libgstreamer-plugins-base1.0-dev \
+        gstreamer1.0-plugins-base \
+        gstreamer1.0-plugins-good \
+        gstreamer1.0-plugins-bad \
+        gstreamer1.0-plugins-ugly \
+        gstreamer1.0-libav \
+        gstreamer1.0-vaapi \
+        gstreamer1.0-fdkaac \
         ; \
     dpkgArch="$(dpkg --print-architecture)"; \
     case "${dpkgArch##*-}" in \
