@@ -50,6 +50,8 @@ RUN set -eux; \
         gstreamer1.0-vaapi \
         gstreamer1.0-fdkaac \
         gstreamer1.0-x \
+        libvulkan-dev \
+        glslc \
         ; \
     dpkgArch="$(dpkg --print-architecture)"; \
     case "${dpkgArch##*-}" in \
